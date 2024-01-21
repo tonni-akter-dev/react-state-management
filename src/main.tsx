@@ -1,10 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import Layout from "./Layout";
+import AddProduct from "./AddProduct";
+import GetProducts from "./GetProducts";
+import UpdateProduct from "./UpdateProduct";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/addProduct",
+        element: <AddProduct />,
+      },
+      {
+        path: "/getAllProduct",
+        element: <GetProducts />,
+      },
+      {
+        path: "/updateProduct/:id",
+        element: <UpdateProduct />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
