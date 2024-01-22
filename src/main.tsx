@@ -3,9 +3,8 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Layout from "./Layout";
-import AddProduct from "./AddProduct";
-import GetProducts from "./GetProducts";
-import UpdateProduct from "./UpdateProduct";
+
+import Combination from "./components/Combination";
 
 const router = createBrowserRouter([
   {
@@ -13,18 +12,24 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/addProduct",
-        element: <AddProduct />,
-      },
-      {
-        path: "/getAllProduct",
-        element: <GetProducts />,
-      },
-      {
-        path: "/updateProduct/:id",
-        element: <UpdateProduct />,
+        path: "/",
+        element: <Combination />,
       },
     ],
+    // children: [
+    //   {
+    //     path: "/addProduct",
+    //     element: <AddProduct />,
+    //   },
+    //   {
+    //     path: "/getAllProduct",
+    //     element: <GetProducts />,
+    //   },
+    //   {
+    //     path: "/updateProduct/:id",
+    //     element: <UpdateProduct />,
+    //   },
+    // ],
   },
 ]);
 
